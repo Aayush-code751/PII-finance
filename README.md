@@ -1,4 +1,5 @@
 Conformal PII Gating for Financial Documents
+
 Reproducible artifact for "Conformal PII Gating for Financial Documents" (IEEE format, `paper/finance_paper.tex` + compiled `paper/finance_paper.pdf`). Every number in the paper traces back to a key in `results/finance_results.json`.
 Financial document streams — KYC files, wire memos, loan notes — carry PII whose dominant identifiers are checksummed: card numbers validate under Luhn, IBANs under ISO 7064 mod-97. This project shows that checksum anchoring turns split conformal calibration into an unusually strong control for redaction:
 Verified identifiers produce near-separable detector scores, so per-type conformal thresholds settle in `[0.88, 0.99]` and carry a finite-sample certificate that at most a user-chosen `α` of true spans leak end to end.
@@ -19,6 +20,7 @@ Corpus	Ours F1	Presidio F1	Ours end-to-end miss
 Gretel finance (n=3,000)	0.164	0.291	49.2%
 Nemotron finance (n=2,394)	0.145	0.258	44.9%
 On documents never templated against, roughly half of the rule engine's checksummed-type thresholds collapse to `τ = 0` and miss rises sharply — see `results/external_gretel_finance.json`, `results/external_nemotron_finance.json`, and the paper's "External Validation" and "Limitations" sections for the full discussion.
+
 Repository layout
 ```text
 synpii/                  Core SDK: taxonomy, split-conformal gate, dedup, surrogate anonymizer, metrics
