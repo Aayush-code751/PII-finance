@@ -1,0 +1,47 @@
+==== cga-finance ====
+  [finance] seed 7 ours: F1=0.916 R=0.968 miss=0.032
+  [finance] seed 7 presidio-sm: F1=0.600 R=0.680 miss=0.320
+  [finance] seed 7 presidio-lg: F1=0.687 R=0.691 miss=0.309
+  [finance] seed 13 ours: F1=0.916 R=0.965 miss=0.035
+  [finance] seed 13 presidio-sm: F1=0.612 R=0.699 miss=0.301
+  [finance] seed 13 presidio-lg: F1=0.705 R=0.710 miss=0.290
+  [finance] seed 21 ours: F1=0.916 R=0.966 miss=0.034
+  [finance] seed 21 presidio-sm: F1=0.604 R=0.686 miss=0.314
+  [finance] seed 21 presidio-lg: F1=0.693 R=0.701 miss=0.299
+  [finance] seed 42 ours: F1=0.917 R=0.966 miss=0.034
+  [finance] seed 42 presidio-sm: F1=0.612 R=0.691 miss=0.309
+  [finance] seed 42 presidio-lg: F1=0.697 R=0.702 miss=0.298
+  [finance] seed 77 ours: F1=0.916 R=0.968 miss=0.032
+  [finance] seed 77 presidio-sm: F1=0.616 R=0.696 miss=0.304
+  [finance] seed 77 presidio-lg: F1=0.702 R=0.710 miss=0.290
+saved /home/claude/cga-finance/results/finance_results.json
+==== cga-health ====
+  [healthcare] seed 7 ours: F1=0.926 R=0.962 miss=0.038
+  [healthcare] seed 7 presidio-sm: F1=0.583 R=0.615 miss=0.385
+  [healthcare] seed 7 presidio-lg: F1=0.621 R=0.620 miss=0.380
+  [healthcare] seed 13 ours: F1=0.921 R=0.957 miss=0.043
+  [healthcare] seed 13 presidio-sm: F1=0.588 R=0.614 miss=0.386
+  [healthcare] seed 13 presidio-lg: F1=0.617 R=0.626 miss=0.374
+  [healthcare] seed 21 ours: F1=0.921 R=0.957 miss=0.043
+  [healthcare] seed 21 presidio-sm: F1=0.594 R=0.621 miss=0.379
+  [healthcare] seed 21 presidio-lg: F1=0.624 R=0.625 miss=0.375
+  [healthcare] seed 42 ours: F1=0.916 R=0.954 miss=0.046
+  [healthcare] seed 42 presidio-sm: F1=0.579 R=0.608 miss=0.392
+  [healthcare] seed 42 presidio-lg: F1=0.625 R=0.624 miss=0.376
+  [healthcare] seed 77 ours: F1=0.915 R=0.957 miss=0.043
+  [healthcare] seed 77 presidio-sm: F1=0.588 R=0.618 miss=0.382
+  [healthcare] seed 77 presidio-lg: F1=0.619 R=0.625 miss=0.375
+Traceback (most recent call last):
+  File "/home/claude/build_domain_papers.py", line 183, in <module>
+    res["escalation"] = run_health_escalation(seeds[0])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/build_domain_papers.py", line 80, in run_health_escalation
+    ev = evaluate(docs)
+         ^^^^^^^^^^^^^^
+  File "/home/claude/cga/synpii/core.py", line 219, in evaluate
+    m, ug, up = match_spans(d["gold"], d["pred"], iou_thr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/cga/synpii/core.py", line 198, in match_spans
+    pairs = sorted(((g.iou(p), gi, pi) for gi, g in enumerate(gold)
+                                                    ^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
